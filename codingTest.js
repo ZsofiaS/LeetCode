@@ -11,23 +11,13 @@
 
 
 function findX(arr) {
-    function findSmallest() {
-        let smallestPositive = Math.max(...arr);
-        arr.forEach(number => {
-            if (number > 0 && number < smallestPositive) {
-                smallestPositive = number;
-            }
-        })
-        return smallestPositive;
-    }
-    let x = findSmallest();
+    let x = 1;
     let result;
    
     function find(x) {
         let sum = x;
         for (let i = 0; i < arr.length; i++) {
             sum += arr[i]; 
-            console.log("x:" + x)
             if (sum < 1) {
                 x = x + 1;
                 find(x);
