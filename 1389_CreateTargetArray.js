@@ -6,7 +6,7 @@ let createTargetArray = function(nums, index) {
     for (i = 0; i < nums.length; i++) {
         let ind = index[i];
         let value = nums[i];
-        if (target[ind]) {
+        if ((target[ind]) || (target[ind] === 0)) {
             let length = target.length;
             for (j = length - 1; j >= ind; j--) {
                target[j + 1] = target[j]; 
