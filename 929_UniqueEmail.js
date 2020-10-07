@@ -11,20 +11,21 @@
 // + refactor
 
 let numUniqueEmails = function(emails) {
-    const convertEmail = (email) => {
-        let localName = email.split('@')[0];
-        let domainName = email.split('@')[1];
-        if (localName.includes('+')) {
-            localName = localName.split('+')[0];
-        }
-        if (localName.includes('.')) {
-            localName = localName.split('.').join('');
-        }
-        return `${localName}@${domainName}`;
-    }
     let convertedEmails = emails.map(email => {
         return convertEmail(email);
     })
     let uniqueEmails = [...new Set(convertedEmails)];
     return uniqueEmails.length;
 };
+
+const convertEmail = (email) => {
+    
+    let [localName, domainName] = email.split('@');
+    if (localName.includes('+')) {
+        localName = localName.split('+')[0];
+    }
+    if (localName.includes('.')) {
+        localName = localName.split('.').join('');
+    }
+    return `${localName}@${domainName}`;
+}
